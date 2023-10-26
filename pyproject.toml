@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jitterator"
+version = "0.1.0"
+authors = [
+  { name="Yfiua", email="yfiua6@gmail.com" },
+]
+description = "A Python decorator that jitters the parameters of a function to test its robustness."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+dynamic = ["dependencies"]
+
+[project.urls]
+"Homepage" = "https://github.com/yfiua/jitterator"
+"Bug Tracker" = "https://github.com/yfiua/jitterator/issues"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
