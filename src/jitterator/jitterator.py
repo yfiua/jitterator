@@ -3,8 +3,6 @@ import random
 def jitterate(jitter=0.05, mode='+'):
     def decorator_with_arbitrary_arguments(function):
         def wrapper_accepting_arguments(*args, **kwargs):
-            print(f'Inside jitterator. jitter = {jitter}, mode = {mode}')
-
 #            print("kwargs:")
 #            for kwarg in kwargs:
 #                val = kwargs.get(kwarg)
