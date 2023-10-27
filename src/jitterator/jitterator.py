@@ -5,10 +5,6 @@ def jitterate(jitter=0.05, mode='+'):
         def wrapper_accepting_arguments(*args, **kwargs):
             print(f'Inside jitterator. jitter = {jitter}, mode = {mode}')
 
-            print("args:")
-            for arg in args:
-                print(f'type = {type(arg)}, value = {arg}')
-
 #            print("kwargs:")
 #            for kwarg in kwargs:
 #                val = kwargs.get(kwarg)
@@ -19,12 +15,10 @@ def jitterate(jitter=0.05, mode='+'):
             for i, arg in enumerate(args):
                 if isinstance(arg, (int, float)):
                     jittered_args[i] += random.uniform(-jitter, jitter)
+                else:
+                    print(f'jitterator: arg {i} is not additive, skipping.')
 
-            print("jittered args:")
-            for arg in jittered_args:
-                print(f'type = {type(arg)}, value = {arg}')
-
-            return function(*jittered_args, **kwargs)
+            return function(*jittered_args, **kwargs), jittered_args
 
         return wrapper_accepting_arguments
 
