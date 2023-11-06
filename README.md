@@ -34,9 +34,22 @@ vals_jittered, args_jittered = zip(*res_jittered)
 
 You can then plot the jittered results.
 
+The input parameters of the jittered function can be of different types such as numpy arrays, but must be additive or multiplicative, depending on the mode. For example
+
+```python
+def test_fun_np(x, y):
+    return np.dot(x, y)
+
+@jitterate(.01, '+')
+def test_fun_np_jittered(x, y):
+    return test_fun_np(x, y)
+
+x, y = np.array([1, 2, 3]), np.array([4, 5, 6])
+```
+
 ![Example plot](example-plot.png)
 
 ## TODOs
 
 * Separate jitters for different parameters
-* Support more input parameter types (numpy etc.)
+* Distribution of the jitter
