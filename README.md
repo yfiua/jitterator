@@ -8,7 +8,12 @@ pip install git+https://github.com/yfiua/jitterator
 ```
 ## Usage
 
-Add the decorator `@jitterate(jitter)` to the function. For example:
+Add the decorator `@jitterate(jitter, mode)` to the function. 
+
+* `jitter` is the amount of jittering, which defaults to 0.05
+* `mode` can be `'+'` (additive, default) or `'*'` (multiplicative)
+
+For example:
 
 ```python
 from jitterator import jitterate
@@ -33,6 +38,5 @@ You can then plot the jittered results.
 
 ## TODOs
 
-* Multiplicative jitters
 * Separate jitters for different parameters
 * Support more input parameter types (numpy etc.)
