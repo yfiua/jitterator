@@ -25,13 +25,13 @@ def jitterate(jitter=0.05, mode='+'):
             if mode == '+':
                 for i, arg in enumerate(args):
                     if is_additive(arg):
-                        jittered_args[i] += random.uniform(-jitter, jitter)
+                        jittered_args[i] = jittered_args[i] + random.uniform(-jitter, jitter)
                     else:
                         print(f'jitterator: arg {i} is not additive, skipping.')
             elif mode == '*':
                 for i, arg in enumerate(args):
                     if is_multiplicative(arg):
-                        jittered_args[i] *= random.uniform(1-jitter, 1+jitter)
+                        jittered_args[i] = jittered_args[i] * random.uniform(1-jitter, 1+jitter)
                     else:
                         print(f'jitterator: arg {i} is not multiplicative, skipping.')
 
