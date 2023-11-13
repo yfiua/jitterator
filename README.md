@@ -8,7 +8,7 @@ pip install git+https://github.com/yfiua/jitterator
 ```
 ## Usage
 
-Add the decorator `@jitterate(jitter, mode)` to the function. 
+Add the decorator `@jitterate(jitter, mode)` to the function.
 
 * `jitter` is the amount of jittering, which defaults to 0.05
 * `mode` can be `'+'` (additive, default) or `'*'` (multiplicative)
@@ -34,6 +34,8 @@ vals_jittered, args_jittered = zip(*res_jittered)
 
 You can then plot the jittered results.
 
+![Example plot](example-plot.png)
+
 The input parameters of the jittered function can be of different types such as numpy arrays, but must be additive or multiplicative, depending on the mode. For example
 
 ```python
@@ -47,9 +49,19 @@ def test_fun_np_jittered(x, y):
 x, y = np.array([1, 2, 3]), np.array([4, 5, 6])
 ```
 
-![Example plot](example-plot.png)
+The jitter can be a single value or a list / numpy array of the same length as the input parameters. For example
+
+```python
+def test_fun_list(x, y):
+    return np.dot(x, y)
+
+@jitterate([.01, .02], '+')
+def test_fun_list_jittered(x, y):
+    return test_fun_list(x, y)
+
+x, y = np.array([1, 2, 3]), np.array([4, 5, 6])
+```
 
 ## TODOs
 
-* Separate jitters for different parameters
 * Distribution of the jitter
