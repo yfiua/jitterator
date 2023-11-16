@@ -1,4 +1,3 @@
-import random
 import numpy as np
 
 def jitterate(jitter=0.05, mode='+'):
@@ -42,12 +41,12 @@ def jitterate(jitter=0.05, mode='+'):
             for i, arg in enumerate(args):
                 if mode[i] == '+':
                     if is_additive(arg):
-                        jittered_args[i] = jittered_args[i] + random.uniform(-jitter[i], jitter[i])
+                        jittered_args[i] = jittered_args[i] + np.random.uniform(-jitter[i], jitter[i])
                     else:
                         print(f'jitterator: arg {i} is not additive, skipping.')
                 elif mode[i] == '*':
                     if is_multiplicative(arg):
-                        jittered_args[i] = jittered_args[i] * random.uniform(1-jitter[i], 1+jitter[i])
+                        jittered_args[i] = jittered_args[i] * np.random.uniform(1-jitter[i], 1+jitter[i])
                     else:
                         print(f'jitterator: arg {i} is not multiplicative, skipping.')
                 else:
